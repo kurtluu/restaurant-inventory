@@ -59,6 +59,7 @@ export default function OwnerDashboard({
         "postgres_changes",
         { event: "*", schema: "public", table: "items" },
         (payload) => {
+
           if (payload.eventType === "INSERT")
             setItems((p) => [...p, payload.new as Item]);
           if (payload.eventType === "UPDATE")
